@@ -7,6 +7,8 @@ const { db } = require('./models');
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/Public'));
+app.use('/wiki', require('./routes/wiki'));
+app.use('/user', require('./routes/user'));
 
 app.get('/', (req, res) => {
   res.send(layout(''));
